@@ -1,0 +1,25 @@
+<!-- 1. observer.disconnect() – stops the observation.
+When we stop the observing, it might be possible that some changes were not yet processed by the observer. In such cases, we use
+
+2. observer.takeRecords() – gets a list of unprocessed mutation records – those that happened, but the callback has not handled them. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // get a list of unprocessed mutations
+      // should be called before disconnecting,
+      // if you care about possibly unhandled recent mutations
+      let mutationRecords = observer.takeRecords();
+
+      // stop tracking changes
+      observer.disconnect();
+      // ...
+    </script>
+  </body>
+</html>
